@@ -1,0 +1,4 @@
+hadoop/mapreduce/Main.class
+tn/insat/tp1/WordCount.class
+tn/insat/tp1/TokenizerMapper.class
+tn/insat/tp1/IntSumReducer.class
