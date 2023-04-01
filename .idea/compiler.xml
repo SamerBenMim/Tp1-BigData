@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wordcount" />
+        <module name="crypto_map_reduce" />
       </profile>
     </annotationProcessing>
   </component>

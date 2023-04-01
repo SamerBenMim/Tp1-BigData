@@ -12,20 +12,35 @@ import java.util.StringTokenizer;
 public class TokenizerMapper
         extends Mapper<Object, Text, Text, FloatWritable>{
 
-    private Text magasin = new Text();
-    private FloatWritable cout = new FloatWritable();
-
+    private Text asset = new Text();
+    private FloatWritable count = new FloatWritable();
+    String[] assetNames = {
+            "Bitcoin Cash",
+            "Binance Coin",
+            "Bitcoin",
+            "EOS.IO",
+            "Ethereum Classic",
+            "Ethereum",
+            "Litecoin",
+            "Monero",
+            "TRON",
+            "Stellar",
+            "Cardano",
+            "IOTA",
+            "Maker",
+            "Dogecoin"
+    };
     public void map(Object key, Text value, Mapper.Context context) throws IOException, InterruptedException {
 
         String[] columns = value.toString().split(",");
 
-        if (columns.length == 7) {
+        if (columns.length == 10) {
             // Extract the 'magasin' and 'cout' values
-            magasin.set(columns[3]);
-            cout.set(Float.parseFloat(columns[5]));
-            System.out.println(magasin);
-            System.out.println(cout);
-            context.write(magasin, cout);
+            asset.set(new Text(assetNames[(Integer.parseInt(columns[1].toString()))]));
+            count.set(Float.parseFloat(columns[7]));
+            System.out.println(asset);
+            System.out.println(count);
+            context.write(asset, count);
         }
     }
 }
